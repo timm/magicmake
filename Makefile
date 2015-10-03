@@ -2,15 +2,15 @@
 typo:   ready
 	@- git status
 	@- git commit -am "saving"
-	@- git push origin master # <== update as needed
+	@- git push #origin master # <== update as needed
 
 commit: ready
 	@- git status
 	@- git commit -a
-	@- git push origin master
+	@- git push #origin master
 
 update: ready
-	@- git pull origin master
+	@- git pull #origin master
 
 status: ready
 	@- git status
