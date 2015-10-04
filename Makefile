@@ -8,21 +8,30 @@
 # 2. Add the text of _magicMake/mock.sh into .bash_profile
 # 3. Configure the following pathnames
 
+Here=$(shell pwd)
+
 # where to write the doc files
-out= .#
+out= $(Here)/doc#
 
 # directory with support files
-etc= ../_magicMake#
+magic= $(Here)/_magicMake#
 
-# path to source code files
+# directory with support files
+etc= $(Here)/etc#
 
-src= src#
+# path to source code files and man files
+src= $(Here)/src#
+
+# full pathname to the repo
+prefix= https://github.com/txt/mase/blob/master#
 
 # full pathname to the raw image files
 img= https://raw.githubusercontent.com/txt/mase/master/img#
 
-pys= $(subst .py,.md,$(shell ls *.py;))#
-mds= $(out)/$(subst .md ,.md $(out)/,$(pys))#
+pys=   $(shell ls $(src)/*.py;)#
+msds1= $(shell ls $(src)/*.md;)#
+mds2=  $($pys:.py=.md)#
+mds=   $(mds1) $(mds2)#
 
 # do not change this line
 include _magicMake/Makefile

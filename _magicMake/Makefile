@@ -26,11 +26,14 @@ timm:  # <== change to your name
 	@git config --global user.name "Tim Menzies"
 	@git config --global user.email tim.menzies@gmail.com
 
+mds : $(mds)
+
 $(out)/%.md: %.py $(etc)/header.txt $(etc)/footer.txt $(etc)/p2md.awk
 	@echo "making... $<"
 	@(cat $(etc)/header.txt; \
-          awk -f $(etc)/p2md.awk -v name="$<" $< ; \
+          awk -f $(magic)/p2md.awk -v name="$<" $< ; \
          cat $(etc)/footer.txt) \
          | sed 's?__PRE?$(prefix)?g'  \
-         | sed 's?__IMG?$(img)?g' > $@;
+         | sed 's?__IMG?$(img)?g' \
+         | sed 's?__DOC?$(out)?g' > $@;
 	@git add $@

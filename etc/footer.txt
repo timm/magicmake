@@ -1,0 +1,7 @@
+
+_________
+
+<img align=right src="__IMG/pd-icon.png">
+Copyright © 2015 [MagicMake](https://github.com/timm/magicmake).
+This is free and unencumbered software released into the public domain.
+For more details, see the [license](__DOC/LICENSE.md).
