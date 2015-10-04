@@ -18,13 +18,18 @@ etc= ../_magicMake#
 
 src= src#
 
-prefix= https://github.com/txt/mase/blob/master#
-img=    https://raw.githubusercontent.com/txt/mase/master/img#
+# full pathname to the raw image files
+img= https://raw.githubusercontent.com/txt/mase/master/img#
 
 pys= $(subst .py,.md,$(shell ls *.py;))#
 mds= $(out)/$(subst .md ,.md $(out)/,$(pys))#
 
-###################################################
-# do not change below this line
-
+# do not change this line
 include _magicMake/Makefile
+
+# change 'timm' to your name and add your details
+me : timm
+
+timm:  # <== change to your name
+	@git config --global user.name "Tim Menzies"
+	@git config --global user.email tim.menzies@gmail.com
